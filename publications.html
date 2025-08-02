@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications & Editorials - NOVA Policy Network</title>
+  <link rel="icon" type="image/png" href="N.png">
+  <link rel="shortcut icon" type="image/png" href="N.png">
+  <link rel="apple-touch-icon" href="N.png">
+  <link href="./simple-style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #000;
+      background: #fff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* Main container - even wider like dris.one */
+    .frame {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Header styling - ultra minimal */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 120px;
+      padding: 0;
+      border: none;
+    }
+
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .github-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .github-link:hover {
+      color: #000;
+    }
+
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link:hover {
+      color: #000;
+    }
+
+    /* Main heading - dris.one style */
+    h1 {
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #000;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+      max-width: 700px;
+    }
+
+    /* Subtitle styling - cleaner */
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 60px;
+      max-width: 600px;
+      font-weight: 400;
+    }
+
+    /* Publications section */
+    .publications-section {
+      margin-bottom: 80px;
+    }
+
+    .publication {
+      margin-bottom: 40px;
+      background: #fafafa;
+      border: 1px solid #f0f0f0;
+      border-radius: 8px;
+      padding: 24px;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .publication:hover {
+      border-color: #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .pub-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pub-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .pub-date {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .pub-authors {
+      font-size: 13px;
+      color: #666;
+      font-weight: 500;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .pub-description {
+      color: #444;
+      line-height: 1.7;
+      font-size: 15px;
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #f5f5f5;
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Tags - enhanced for boxes */
+    .tag {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      background: #f8f8f8;
+      color: #666;
+      padding: 6px 12px;
+      border: 1px solid #f0f0f0;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-transform: lowercase;
+    }
+
+    .tag:hover {
+      background: #f0f0f0;
+      color: #333;
+      border-color: #e0e0e0;
+    }
+
+    /* Footer - dris.one style */
+    .frame > main > div:last-child {
+      margin-top: 120px;
+      padding-top: 0;
+      border-top: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .frame > main > div:last-child img {
+      width: 120px;
+      height: auto;
+      opacity: 0.8;
+    }
+
+    .frame > main > div:last-child div {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #999;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .frame > main > div:last-child a {
+      color: #666;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .frame > main > div:last-child a:hover {
+      color: #000;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .frame {
+        padding: 40px 16px;
+      }
+      
+      h1 {
+        font-size: 36px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+
+    /* Clean transitions */
+    * {
+      transition: color 0.2s ease;
+    }
+
+    /* Focus states */
+    .github-link:focus,
+    .nav-link:focus {
+      outline: 2px solid #0066ff;
+      outline-offset: 2px;
+    }
+
+    /* Intro section */
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <a href="simple.html" class="logo">NOVA Policy Network</a>
+      <nav style="display: flex; gap: 24px; align-items: center;">
+        <a href="simple.html" class="nav-link">Home</a>
+        <a href="https://github.com/nova-policy" target="_blank" class="github-link" aria-label="GitHub">
+          <svg height="15" viewBox="0 0 16 16" fill="#222" style="vertical-align: middle;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68.003 1.37.092 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <h1>Publications & Editorials</h1>
+        <p class="subtitle">Research papers, policy briefs, and editorial perspectives on cognitive enhancement governance</p>
+      </section>
+      
+      <section class="publications-section">
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Enhancement and Democratic Participation: A Policy Framework</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            An comprehensive analysis of how cognitive enhancement technologies impact democratic processes and civic engagement. This paper proposes regulatory frameworks to ensure cognitive enhancers strengthen rather than undermine democratic institutions through evidence-based policy recommendations.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-framework</span>
+            <span class="tag">democracy</span>
+            <span class="tag">civic-engagement</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neuroethics in the Workplace: Balancing Enhancement and Autonomy</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A detailed examination of ethical considerations surrounding cognitive enhancement in professional environments. The research addresses concerns about coercion, fairness, and competitive advantage while proposing guidelines for ethical implementation in corporate settings.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">workplace-ethics</span>
+            <span class="tag">autonomy</span>
+            <span class="tag">professional-standards</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Global Perspectives on Cognitive Enhancement Regulation</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A comparative study of cognitive enhancement policies across different nations and cultural contexts. This research identifies best practices and common challenges in developing internationally coordinated approaches to enhancement governance while respecting cultural diversity.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">international-policy</span>
+            <span class="tag">comparative-analysis</span>
+            <span class="tag">cultural-diversity</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Editorial: The Future of Human Cognitive Capacity</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            An editorial perspective on the trajectory of cognitive enhancement technologies and their implications for human society. We argue for proactive policy development that anticipates technological advances while protecting fundamental human rights and promoting equitable access to enhancement opportunities.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">editorial</span>
+            <span class="tag">future-policy</span>
+            <span class="tag">human-rights</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Regulatory Sandboxes for Cognitive Enhancement Technologies</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            This paper examines the potential for regulatory sandbox approaches in cognitive enhancement policy. Drawing from fintech and healthcare models, we propose controlled testing environments that allow for innovation while maintaining safety standards and ethical oversight in the development of enhancement technologies.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">regulatory-sandbox</span>
+            <span class="tag">innovation-policy</span>
+            <span class="tag">safety-standards</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Justice: Ensuring Equitable Access to Enhancement Technologies</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            An exploration of distributive justice principles in the context of cognitive enhancement. This research addresses concerns about creating or exacerbating societal inequalities through differential access to enhancement technologies and proposes frameworks for ensuring cognitive justice across socioeconomic boundaries.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">cognitive-justice</span>
+            <span class="tag">equity</span>
+            <span class="tag">distributive-justice</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Risk Stratification Policy Framework</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A comprehensive policy framework that assigns neuroenhancement clearance levels based on individual brain structure, psychiatric history, and genomic markers. This stratification system ensures personalized safety protocols while preventing discrimination based on neurological diversity. The framework establishes evidence-based criteria for determining enhancement eligibility and develops safeguards against genetic or neurological bias in cognitive enhancement access.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">risk-stratification</span>
+            <span class="tag">personalized-medicine</span>
+            <span class="tag">safety-protocols</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Longitudinal Neuroenhancer Outcome Tracking Act</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legislative proposal mandating post-market, real-world follow-up of all cognitive enhancers for at least 10 years using EHR-linked databases. This comprehensive tracking system addresses the current gap in long-term safety monitoring of cognitive enhancement technologies. The act establishes protocols for continuous monitoring, adverse event reporting, and real-world effectiveness assessment while protecting patient privacy and ensuring data security across healthcare systems.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">longitudinal-tracking</span>
+            <span class="tag">post-market-surveillance</span>
+            <span class="tag">ehr-integration</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Differentiated Use License Framework for Cognitive Enhancers</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A novel regulatory framework that classifies cognitive enhancers under performance-only, wellness, and therapeutic tracks with distinct legal and insurance routes. This differentiated approach recognizes the diverse applications and risk profiles of cognitive enhancement technologies. The framework establishes separate approval pathways, liability structures, and reimbursement mechanisms for each category while ensuring appropriate oversight and consumer protection across all tracks.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">regulatory-framework</span>
+            <span class="tag">classification-system</span>
+            <span class="tag">insurance-policy</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neuropharma-Public Interest Innovation Cap Policy</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Policy proposal limiting patent protection or exclusivity when public data or trials were involved in enhancement research and development to promote affordability. This framework balances innovation incentives with public access rights, ensuring that taxpayer-funded research benefits society broadly. The policy establishes criteria for determining public contribution thresholds and implements graduated limitations on intellectual property rights based on the level of public investment in development.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">patent-policy</span>
+            <span class="tag">public-interest</span>
+            <span class="tag">affordability</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Reversible Cognitive Modification Regulation Standards</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Regulatory standards requiring all neuroenhancers to be tested for off-ramping and return-to-baseline protocols before approval. This framework addresses the critical need for reversibility in cognitive modifications, ensuring users can safely discontinue enhancement without permanent adverse effects. The regulation establishes testing requirements, safety margins, and monitoring protocols for cognitive enhancement discontinuation while developing standardized assessment tools for baseline cognitive function restoration.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">reversibility</span>
+            <span class="tag">safety-standards</span>
+            <span class="tag">baseline-restoration</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neurodata Localization Law Framework</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legal framework requiring all brain-interface data to be stored in the user's country of residence and prohibiting cross-border transfer without explicit consent. This data sovereignty approach protects citizens from foreign surveillance and ensures local legal protections apply to neural data. The framework establishes technical standards for data localization, emergency access protocols, and international cooperation mechanisms while respecting both privacy rights and legitimate law enforcement needs.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">data-sovereignty</span>
+            <span class="tag">cross-border-regulation</span>
+            <span class="tag">neural-privacy</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Metadata Regulation Act</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Comprehensive legislation treating cognitive metadata including thought patterns, attention spikes, and emotional states as sensitive health data requiring enhanced protection. This regulation recognizes that metadata can reveal intimate details about mental processes and personal characteristics. The act establishes strict consent requirements, access controls, and use limitations for cognitive metadata while developing technical standards for anonymization and establishing penalties for unauthorized access or misuse.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">metadata-protection</span>
+            <span class="tag">sensitive-data</span>
+            <span class="tag">privacy-regulation</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Predictive Neuroanalytics Liability Framework</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legal framework holding companies liable for inaccurate behavioral predictions based on user neurodata that lead to harm or discrimination. This accountability system addresses the growing use of neural data in predictive algorithms across employment, insurance, and criminal justice contexts. The framework establishes standards for algorithmic transparency, prediction accuracy requirements, and victim compensation mechanisms while encouraging responsible development of neuroanalytic technologies.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">algorithmic-liability</span>
+            <span class="tag">predictive-analytics</span>
+            <span class="tag">discrimination-prevention</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Inference Prevention Policy</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Policy framework regulating indirect extraction of beliefs, preferences, and intentions from neurodata, even when not explicitly collected. This regulation addresses sophisticated inference techniques that can derive sensitive personal information from seemingly innocuous neural signals. The policy establishes technical standards for inference prevention, requires disclosure of inferential capabilities, and creates legal protections against unwanted cognitive profiling while supporting legitimate research and therapeutic applications.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">inference-prevention</span>
+            <span class="tag">cognitive-profiling</span>
+            <span class="tag">indirect-extraction</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neurodata Fiduciary Mandate Implementation</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legislative proposal requiring brain-interface and neurotech firms to act as fiduciaries of user mental data, similar to financial or legal duty standards. This framework establishes the highest standard of care for neural data stewardship, requiring companies to prioritize user interests above their own. The mandate defines fiduciary responsibilities, establishes breach penalties, and creates oversight mechanisms while developing industry standards for neural data stewardship and user advocacy protocols.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">fiduciary-duty</span>
+            <span class="tag">data-stewardship</span>
+            <span class="tag">user-protection</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neuroenhancement Non-Discrimination Act</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Comprehensive civil rights legislation preventing employers and universities from requiring or screening for cognitive enhancer use or non-use. This act protects individual autonomy in enhancement decisions while preventing discriminatory practices in education and employment. The legislation establishes enforcement mechanisms, defines protected categories, and creates safe harbor provisions for legitimate safety-related inquiries while developing guidelines for reasonable accommodation of both enhanced and unenhanced individuals.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">anti-discrimination</span>
+            <span class="tag">employment-protection</span>
+            <span class="tag">educational-rights</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neurocompetency Disclosure Standards for High-Risk Fields</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Regulatory framework defining when disclosure of cognitive enhancement use is legally required in high-risk fields such as aviation, finance, and healthcare due to public safety concerns. This balanced approach protects both individual privacy and public safety by establishing clear, evidence-based criteria for mandatory disclosure. The standards define risk thresholds, disclosure procedures, and appeal processes while developing safety assessment protocols and professional licensing requirements for enhanced practitioners.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">disclosure-requirements</span>
+            <span class="tag">public-safety</span>
+            <span class="tag">professional-standards</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Fatigue Monitoring Regulations</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Regulatory framework governing the use of brain-computer interfaces and neuroanalytics to track real-time worker fatigue, requiring informed consent and mandating non-punitive use. This regulation balances workplace safety with employee privacy rights, establishing clear boundaries for cognitive monitoring in professional settings. The framework defines consent requirements, data use limitations, and worker protection mechanisms while developing technical standards for fatigue detection and establishing protocols for safety intervention without employment penalties.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">workplace-monitoring</span>
+            <span class="tag">fatigue-detection</span>
+            <span class="tag">employee-protection</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Mental State Surveillance Boundaries Act</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legislative framework preventing schools and workplaces from using passive EEG or biometric monitoring to modulate instruction or productivity models without explicit consent. This act establishes strict boundaries on involuntary mental state surveillance while protecting educational and workplace autonomy. The legislation defines prohibited monitoring practices, establishes consent requirements for voluntary programs, and creates enforcement mechanisms while developing ethical guidelines for beneficial uses of cognitive monitoring in learning and productivity enhancement.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">surveillance-limits</span>
+            <span class="tag">mental-privacy</span>
+            <span class="tag">consent-requirements</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Enhancement Leave Protection Policy</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legal framework protecting individuals who temporarily stop cognitive enhancement due to side effects or personal choice, establishing protections similar to medical leave policies. This policy recognizes that enhancement discontinuation may require adjustment periods and should not result in employment or educational penalties. The framework defines protected leave categories, establishes accommodation requirements, and creates return-to-work protocols while developing support systems for enhancement transition periods and anti-retaliation mechanisms.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">leave-protection</span>
+            <span class="tag">employment-rights</span>
+            <span class="tag">transition-support</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Dual-Use Neurotechnology Export Control Act</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Comprehensive export control legislation limiting transfer of neurostimulation and neurodrug technologies with performance-enhancing potential to hostile actors or regimes. This act addresses national security concerns while maintaining legitimate scientific and medical collaboration. The framework establishes technology classification systems, licensing requirements, and international cooperation protocols while developing technical assessment criteria for dual-use potential and creating exemptions for humanitarian and research applications.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">export-control</span>
+            <span class="tag">dual-use-technology</span>
+            <span class="tag">national-security</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Enhancement Treaty Verification Framework</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            International verification system applying arms-control-style inspection tools to military cognitive enhancement programs under NEURALPACT agreements. This framework adapts traditional weapons verification methods to the unique challenges of cognitive enhancement oversight. The system establishes inspection protocols, technical verification methods, and compliance assessment procedures while developing international cooperation mechanisms and creating transparency requirements for military enhancement research and deployment.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">treaty-verification</span>
+            <span class="tag">military-oversight</span>
+            <span class="tag">international-compliance</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Ethical Warfare Neurocap Limit Policy</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Military ethics framework defining ethical ceilings for enhanced performance in warfare contexts, explicitly prohibiting memory modulation in prisoner interrogations and establishing limits on combat enhancement. This policy balances military effectiveness with humanitarian law compliance, ensuring cognitive enhancement technologies do not violate existing international agreements. The framework establishes enhancement limits, oversight mechanisms, and accountability systems while developing ethical assessment protocols and international humanitarian law integration.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">military-ethics</span>
+            <span class="tag">warfare-limits</span>
+            <span class="tag">humanitarian-law</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">UNESCO Neuroethics Inspection Regime</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            International proposal creating UNESCO-based inspection teams to monitor compliance with international norms on brain intervention technologies. This regime establishes independent oversight of cognitive enhancement programs worldwide, ensuring adherence to ethical standards and human rights principles. The framework defines inspection authority, technical expertise requirements, and reporting mechanisms while developing international cooperation protocols and creating enforcement pathways for norm violations.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">international-oversight</span>
+            <span class="tag">unesco-framework</span>
+            <span class="tag">compliance-monitoring</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Warfare Simulation Regulation</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Regulatory framework governing simulations and training environments that alter cognition or simulate moral disengagement through enhancement technologies. This regulation addresses the ethical implications of using cognitive modification in military training while ensuring preparedness and effectiveness. The framework establishes simulation ethics standards, consent requirements for cognitive modification training, and oversight protocols while developing assessment criteria for moral impact and creating protection mechanisms for training participants.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">simulation-regulation</span>
+            <span class="tag">training-ethics</span>
+            <span class="tag">moral-protection</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cross-Trial Cognitive Enhancer Harmonization Act</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legislative framework mandating unified endpoints, population controls, and real-world impact assessment across all neuropharma trials. This harmonization effort addresses current inconsistencies in cognitive enhancement research methodology, enabling better comparison and meta-analysis of results. The act establishes standardized trial protocols, outcome measures, and data reporting requirements while developing international coordination mechanisms and creating incentives for methodological compliance across research institutions.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">trial-harmonization</span>
+            <span class="tag">research-standards</span>
+            <span class="tag">methodological-consistency</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Enhancement Placebo Ethics Protocol</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Ethical framework requiring ethics boards to reassess placebo use in long-term cognitive enhancement studies where withdrawal may impair participants' lives. This protocol addresses the unique ethical challenges of enhancement research, where placebo controls may disadvantage participants in competitive environments. The framework establishes alternative study designs, ethical assessment criteria, and participant protection mechanisms while developing compensation protocols and creating guidelines for ethical enhancement research in competitive contexts.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">research-ethics</span>
+            <span class="tag">placebo-protocols</span>
+            <span class="tag">participant-protection</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Public Neuroenhancement Registry Act</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legislative proposal creating an open database of all cognitive enhancement trials and their outcomes, including negative results and failed studies. This registry addresses publication bias and ensures comprehensive access to enhancement research data for scientific and policy purposes. The act establishes data submission requirements, access protocols, and privacy protections while developing technical infrastructure and creating incentives for comprehensive result reporting across research institutions and industry sponsors.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">open-registry</span>
+            <span class="tag">research-transparency</span>
+            <span class="tag">negative-results</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neuropharma Reproducibility Audit Policy</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Quality assurance framework requiring all neuroenhancer developers to submit data for third-party reproducibility verification before publication in peer-reviewed journals. This policy addresses the reproducibility crisis in cognitive enhancement research by establishing independent verification protocols. The framework defines audit requirements, third-party assessor qualifications, and reproducibility standards while developing technical protocols for data verification and creating accountability mechanisms for research quality assurance.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">reproducibility</span>
+            <span class="tag">quality-assurance</span>
+            <span class="tag">independent-verification</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Mental State Intervention Disclosure Law</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Comprehensive disclosure requirements for any trial affecting moral, emotional, or identity-related cognition, mandating full risk disclosure and standardized debriefing protocols. This law addresses the profound implications of research that may alter fundamental aspects of personality and decision-making. The framework establishes enhanced consent procedures, risk communication standards, and post-trial support mechanisms while developing assessment protocols for identity-related impacts and creating long-term monitoring requirements for participants.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">intervention-disclosure</span>
+            <span class="tag">identity-protection</span>
+            <span class="tag">enhanced-consent</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Integrity Violation Statute</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Human rights legislation defining involuntary modification of cognition through neurotech or pharma as a fundamental human rights violation. This statute establishes cognitive integrity as a protected right, creating legal frameworks for prevention, prosecution, and remedy of cognitive violations. The law defines prohibited practices, establishes enforcement mechanisms, and creates victim protection programs while developing international cooperation protocols and establishing penalties proportionate to the severity and scope of cognitive violations.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">human-rights</span>
+            <span class="tag">cognitive-integrity</span>
+            <span class="tag">involuntary-modification</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Subtle Coercion Prevention Law</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Legal framework addressing cognitive enhancement in environments with implicit pressure, such as competitive schools or elite work sectors, where formal coercion may be absent but social pressure creates de facto requirements. This law recognizes that coercion can be subtle and systemic rather than explicit. The framework establishes criteria for identifying coercive environments, creates protection mechanisms for individuals choosing not to enhance, and develops institutional accountability standards while establishing safe harbor provisions for legitimate competitive contexts.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">coercion-prevention</span>
+            <span class="tag">institutional-pressure</span>
+            <span class="tag">choice-protection</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Thought-State Alteration Licensing Board Framework</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Regulatory framework requiring bioethics board review for any technology inducing intentional shifts in moral judgment, risk appetite, or worldview. This licensing system recognizes the profound implications of technologies that alter fundamental aspects of human decision-making and values. The framework establishes specialized review boards, defines licensing criteria, and creates ongoing monitoring requirements while developing ethical assessment protocols and establishing appeals processes for licensing decisions.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">licensing-board</span>
+            <span class="tag">moral-alteration</span>
+            <span class="tag">bioethics-review</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Bioethical Enhancement Labeling System</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Classification system organizing enhancement drugs and devices into risk-moral domains including performance, mood, morality, and identity categories. This labeling system enables informed consumer choice by clearly communicating the nature and scope of cognitive modifications. The framework establishes classification criteria, labeling requirements, and consumer education protocols while developing risk assessment methodologies and creating standardized communication formats for enhancement characteristics and potential impacts.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">classification-system</span>
+            <span class="tag">consumer-information</span>
+            <span class="tag">risk-communication</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Algorithmic Enhancement Regulation Charter</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Regulatory charter establishing rules for cognitive enhancement guided or personalized by proprietary AI algorithms. This framework addresses the intersection of artificial intelligence and cognitive enhancement, ensuring algorithmic decision-making in enhancement protocols meets safety and fairness standards. The charter establishes algorithmic transparency requirements, bias assessment protocols, and accountability mechanisms while developing technical standards for AI-guided enhancement and creating oversight frameworks for algorithmic enhancement systems.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">algorithmic-regulation</span>
+            <span class="tag">ai-transparency</span>
+            <span class="tag">personalized-enhancement</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Scoring Insurance Ban</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Comprehensive legislation prohibiting the use of neuroperformance scores in insurance eligibility, premiums, or health risk modeling to prevent discrimination based on cognitive abilities or enhancement status. This ban protects individuals from genetic and neurological discrimination while maintaining actuarial fairness in insurance markets. The legislation establishes enforcement mechanisms, defines prohibited practices, and creates safe harbor provisions while developing alternative risk assessment methods that respect cognitive privacy and prevent unfair discrimination.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">insurance-protection</span>
+            <span class="tag">cognitive-discrimination</span>
+            <span class="tag">actuarial-fairness</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Neurocredit Score Prevention Law</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Financial protection legislation blocking financial institutions from using brain-based productivity data in credit scoring or lending decisions. This law prevents the emergence of neurocognitive financial discrimination while maintaining legitimate credit assessment practices. The framework establishes prohibited data uses, creates enforcement mechanisms, and defines alternative assessment criteria while developing privacy protection protocols and establishing penalties for unauthorized use of cognitive data in financial decision-making.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">financial-protection</span>
+            <span class="tag">credit-discrimination</span>
+            <span class="tag">cognitive-privacy</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cognitive Enhancement Subsidy Program</h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Public policy framework ensuring equitable access to non-luxury cognitive enhancements, such as executive function boosts for ADHD in public education settings. This program addresses socioeconomic barriers to beneficial cognitive enhancement while preventing the emergence of cognitive class divisions. The framework establishes eligibility criteria, funding mechanisms, and quality standards while developing needs assessment protocols and creating accountability measures for program effectiveness and equitable distribution.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">equity-program</span>
+            <span class="tag">public-access</span>
+            <span class="tag">educational-support</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Cross-Border Neurointerface Interoperability Policy</h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            International technical standards requiring neurointerface devices to meet interoperability standards to prevent neuro-incompatibility risks during international travel or migration. This policy ensures global compatibility of brain-computer interface systems while maintaining security and privacy protections. The framework establishes technical standards, certification processes, and international cooperation mechanisms while developing safety protocols for cross-border neural device operation and creating emergency access provisions for critical neural interfaces.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">interoperability</span>
+            <span class="tag">international-standards</span>
+            <span class="tag">neural-compatibility</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">Closed-Loop Neuroenhancer Safety Standard</h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Technical safety framework mandating fail-safes for neuropharma-BCI systems that automatically adjust dosage or stimulation in real time. This standard addresses the unique risks of closed-loop systems that can modify brain function without conscious user control. The framework establishes safety requirements, testing protocols, and emergency override mechanisms while developing technical specifications for fail-safe systems and creating certification requirements for closed-loop neural enhancement technologies.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">closed-loop-safety</span>
+            <span class="tag">automated-systems</span>
+            <span class="tag">fail-safe-mechanisms</span>
+          </div>
+        </div>
+      </section>
+      
+      <div>
+        <img src="N.png" alt="NOVA Policy Network logo">
+        <div>© 2025 NOVA Policy Network. All rights reserved.</div>
+        <a href="https://github.com/nova-policy" class="github-link">GitHub</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
