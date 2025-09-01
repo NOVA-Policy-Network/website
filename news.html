@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News & Analysis - NOVA Policy Network</title>
+  <link rel="icon" type="image/png" href="N.png">
+  <link rel="shortcut icon" type="image/png" href="N.png">
+  <link rel="apple-touch-icon" href="N.png">
+  <link href="./simple-style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #000;
+      background: #fff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* Main container */
+    .frame {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Header styling */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      padding: 0;
+      border: none;
+    }
+
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .github-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .github-link:hover {
+      color: #000;
+    }
+
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link:hover {
+      color: #000;
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(0, 102, 255, 0.3);
+      border-radius: 50%;
+      animation: float-particle 20s infinite linear;
+    }
+
+    .particle:nth-child(2n) {
+      background: rgba(102, 126, 234, 0.2);
+      width: 2px;
+      height: 2px;
+      animation-duration: 25s;
+    }
+
+    .particle:nth-child(3n) {
+      background: rgba(118, 75, 162, 0.25);
+      width: 4px;
+      height: 4px;
+      animation-duration: 15s;
+    }
+
+    .particle:nth-child(4n) {
+      background: rgba(0, 0, 0, 0.1);
+      width: 1px;
+      height: 1px;
+      animation-duration: 30s;
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .frame {
+        padding: 40px 16px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      .main-story {
+        border-right: none !important;
+        padding-right: 0 !important;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 32px;
+      }
+
+      .opinion-section div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+  
+  <div class="frame">
+    <header>
+      <a href="index.html" class="logo">NOVA Policy Network</a>
+      <nav style="display: flex; gap: 24px; align-items: center;">
+        <a href="publications.html" class="nav-link">Publications</a>
+        <a href="curriculum.html" class="nav-link">Curriculum</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="https://github.com/nova-policy" target="_blank" class="github-link" aria-label="GitHub">
+          <svg height="15" viewBox="0 0 16 16" fill="#222" style="vertical-align: middle;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68.003 1.37.092 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- News & Editorials Section -->
+      <section class="news-section">
+        <div class="news-header" style="margin-bottom: 40px; border-bottom: 3px solid #000; padding-bottom: 16px;">
+          <h1 style="font-size: 42px; font-weight: 700; color: #000; margin-bottom: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif; letter-spacing: -0.02em;">NOVA POLICY NETWORK</h1>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Policy & Analysis</div>
+            <div style="font-size: 12px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Tuesday, August 6, 2025</div>
+          </div>
+        </div>
+
+        <div class="news-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 40px;">
+          <!-- Main Story -->
+          <article class="main-story" style="border-right: 1px solid #e0e0e0; padding-right: 40px;">
+            <div style="margin-bottom: 16px;">
+              <span style="font-size: 11px; color: #d32f2f; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; background: #fff; padding: 4px 8px; border: 1px solid #d32f2f;">Breaking Analysis</span>
+            </div>
+            <h2 style="font-size: 32px; font-weight: 700; line-height: 1.2; color: #000; margin-bottom: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif; letter-spacing: -0.01em;">
+              European Union Considers Sweeping Cognitive Enhancement Regulations as Military Use Accelerates
+            </h2>
+            <p style="font-size: 18px; color: #444; line-height: 1.6; margin-bottom: 20px; font-style: italic;">
+              New proposed framework would establish first comprehensive international standards for neuroenhancement technologies, potentially reshaping global policy landscape.
+            </p>
+            <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+              <div style="width: 40px; height: 40px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                <span style="font-size: 14px; font-weight: 600; color: #666;">SC</span>
+              </div>
+              <div>
+                <div style="font-size: 14px; font-weight: 600; color: #000;">Dr. Sarah Chen</div>
+                <div style="font-size: 12px; color: #666;">Senior Policy Analyst</div>
+              </div>
+              <div style="margin-left: auto; font-size: 12px; color: #666;">12 min read</div>
+            </div>
+            <p style="font-size: 16px; color: #333; line-height: 1.7; margin-bottom: 16px;">
+              The European Commission unveiled draft legislation today that would create the world's most comprehensive regulatory framework for cognitive enhancement technologies, following mounting pressure from member states concerned about the unregulated proliferation of brain-computer interfaces and pharmaceutical cognitive enhancers in military and civilian sectors.
+            </p>
+            <p style="font-size: 16px; color: #333; line-height: 1.7; margin-bottom: 16px;">
+              The proposed regulations, dubbed the "Cognitive Enhancement Governance Act," would establish mandatory safety protocols, ethical review boards, and international cooperation mechanisms for monitoring enhancement use across the 27-member bloc. The legislation represents the most ambitious attempt yet to govern emerging neurotechnology at the supranational level.
+            </p>
+            <p style="font-size: 16px; color: #333; line-height: 1.7; margin-bottom: 20px;">
+              Sources familiar with the draft suggest the framework would require pre-market authorization for cognitive enhancement devices, establish liability frameworks for enhancement-related incidents, and create new categories of regulated enhancement substances beyond traditional pharmaceutical classifications.
+            </p>
+            <a href="#" style="color: #0066ff; text-decoration: none; font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 16px; display: inline-block;">Continue Reading →</a>
+          </article>
+
+          <!-- Sidebar Stories -->
+          <aside class="sidebar-stories">
+            <div style="margin-bottom: 32px;">
+              <h3 style="font-size: 14px; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px solid #000; padding-bottom: 8px;">Latest Analysis</h3>
+              
+              <article style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0f0f0;">
+                <h4 style="font-size: 16px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 8px;">
+                  Silicon Valley Startups Rush to Develop "Ethical AI" for Brain Interfaces
+                </h4>
+                <p style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 8px;">
+                  As regulatory scrutiny intensifies, technology companies are investing billions in AI safety measures for neural enhancement devices.
+                </p>
+                <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Marcus Rodriguez • 6 min read
+                </div>
+              </article>
+
+              <article style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0f0f0;">
+                <h4 style="font-size: 16px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 8px;">
+                  Academic Performance Doping: Universities Grapple with Cognitive Enhancer Policies
+                </h4>
+                <p style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 8px;">
+                  Leading institutions develop new frameworks to address the growing use of nootropics among students and faculty.
+                </p>
+                <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Dr. Emily Zhang • 4 min read
+                </div>
+              </article>
+
+              <article style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0f0f0;">
+                <h4 style="font-size: 16px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 8px;">
+                  Global Survey Reveals 40% Jump in Workplace Enhancement Use
+                </h4>
+                <p style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 8px;">
+                  New data shows dramatic increase in cognitive enhancer adoption across professional sectors, raising questions about workplace equity.
+                </p>
+                <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Alex Thompson • 8 min read
+                </div>
+              </article>
+
+              <article style="margin-bottom: 24px;">
+                <h4 style="font-size: 16px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 8px;">
+                  Pentagon Releases Guidelines for Military Cognitive Enhancement Programs
+                </h4>
+                <p style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 8px;">
+                  New protocols address ethical concerns while maintaining competitive advantage in next-generation warfare capabilities.
+                </p>
+                <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px;">
+                  Jennifer Walsh • 10 min read
+                </div>
+              </article>
+            </div>
+
+            <div style="background: #f8f9fa; border: 1px solid #f0f0f0; border-radius: 8px; padding: 24px;">
+              <h3 style="font-size: 14px; color: #000; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 16px;">Newsletter</h3>
+              <p style="font-size: 13px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                Get weekly policy updates and analysis delivered to your inbox.
+              </p>
+              <div style="display: flex; gap: 8px;">
+                <input type="email" placeholder="Enter email" style="flex: 1; padding: 8px 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px;">
+                <button style="background: #000; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; cursor: pointer;">Subscribe</button>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Recent Articles Grid -->
+        <div style="border-top: 1px solid #e0e0e0; padding-top: 40px; margin-bottom: 40px;">
+          <h2 style="font-size: 20px; font-weight: 700; color: #000; margin-bottom: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;">Recent Reports & Analysis</h2>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+            <article style="border: 1px solid #f0f0f0; border-radius: 8px; padding: 24px; transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.borderColor='#e0e0e0'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#f0f0f0'; this.style.transform='translateY(0)'">
+              <div style="font-size: 11px; color: #0066ff; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 12px;">Research Brief</div>
+              <h3 style="font-size: 18px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 12px;">
+                Neuroethics in the Age of AI: Mapping Regulatory Approaches Across 15 Countries
+              </h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                Comprehensive analysis of how different nations are approaching the intersection of artificial intelligence and cognitive enhancement regulation.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 12px; color: #000; font-weight: 500;">NOVA Research Team</div>
+                <div style="font-size: 11px; color: #999;">15 min read</div>
+              </div>
+            </article>
+
+            <article style="border: 1px solid #f0f0f0; border-radius: 8px; padding: 24px; transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.borderColor='#e0e0e0'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#f0f0f0'; this.style.transform='translateY(0)'">
+              <div style="font-size: 11px; color: #ff6b35; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 12px;">Policy Watch</div>
+              <h3 style="font-size: 18px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 12px;">
+                FDA Announces New Framework for Cognitive Enhancement Device Classification
+              </h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                Updated guidance addresses growing market for consumer neurostimulation devices and their regulatory pathways.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 12px; color: #000; font-weight: 500;">Regulatory Affairs Desk</div>
+                <div style="font-size: 11px; color: #999;">8 min read</div>
+              </div>
+            </article>
+
+            <article style="border: 1px solid #f0f0f0; border-radius: 8px; padding: 24px; transition: all 0.2s ease; cursor: pointer;" onmouseover="this.style.borderColor='#e0e0e0'; this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#f0f0f0'; this.style.transform='translateY(0)'">
+              <div style="font-size: 11px; color: #8e24aa; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 12px;">International</div>
+              <h3 style="font-size: 18px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 12px;">
+                WHO Establishes Global Task Force on Cognitive Enhancement Standards
+              </h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 16px;">
+                World Health Organization initiative aims to develop international guidelines for enhancement technology safety and efficacy.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 12px; color: #000; font-weight: 500;">International Desk</div>
+                <div style="font-size: 11px; color: #999;">12 min read</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Opinion Section -->
+        <div class="opinion-section" style="border-top: 2px solid #000; padding-top: 32px;">
+          <h2 style="font-size: 24px; font-weight: 700; color: #000; margin-bottom: 24px; font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;">Opinion & Editorial</h2>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+            <article style="border-left: 3px solid #0066ff; padding-left: 16px;">
+              <div style="font-size: 11px; color: #0066ff; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px;">Guest Column</div>
+              <h3 style="font-size: 20px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 12px;">
+                "Why We Need a Human Right to Cognitive Liberty"
+              </h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 12px;">
+                The debate over cognitive enhancement misses a fundamental point: the right to modify one's own mind should be considered a basic human freedom, subject only to harm prevention principles.
+              </p>
+              <div style="font-size: 12px; color: #000; font-weight: 500;">Prof. Michael Torres, Bioethics Institute, Stanford University</div>
+            </article>
+
+            <article style="border-left: 3px solid #d32f2f; padding-left: 16px;">
+              <div style="font-size: 11px; color: #d32f2f; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px;">Editorial</div>
+              <h3 style="font-size: 20px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 12px;">
+                "The Enhancement Divide: Technology Must Not Deepen Inequality"
+              </h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 12px;">
+                Without careful regulation and equitable access policies, cognitive enhancement could create new forms of societal stratification that make current inequality pale in comparison.
+              </p>
+              <div style="font-size: 12px; color: #000; font-weight: 500;">NOVA Editorial Board</div>
+            </article>
+
+            <article style="border-left: 3px solid #ff9800; padding-left: 16px;">
+              <div style="font-size: 11px; color: #ff9800; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px;">Op-Ed</div>
+              <h3 style="font-size: 20px; font-weight: 600; line-height: 1.3; color: #000; margin-bottom: 12px;">
+                "Military Enhancement: Where Do We Draw the Line?"
+              </h3>
+              <p style="font-size: 14px; color: #666; line-height: 1.5; margin-bottom: 12px;">
+                As armed forces worldwide adopt cognitive enhancers, international law struggles to keep pace with the changing nature of warfare and soldier enhancement protocols.
+              </p>
+              <div style="font-size: 12px; color: #000; font-weight: 500;">General (Ret.) Patricia Kim, Former NATO Strategic Command</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Generate floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random starting position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+        
+        // Random horizontal drift
+        const drift = (Math.random() - 0.5) * 200;
+        particle.style.setProperty('--drift', drift + 'px');
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Initialize particles when page loads
+    document.addEventListener('DOMContentLoaded', createParticles);
+
+    // Newsletter subscription functionality
+    document.querySelector('button').addEventListener('click', function() {
+      const email = document.querySelector('input[type="email"]').value;
+      if (email) {
+        alert('Thank you for subscribing to NOVA Policy Network updates!');
+        document.querySelector('input[type="email"]').value = '';
+      }
+    });
+  </script>
+</body>
+</html>

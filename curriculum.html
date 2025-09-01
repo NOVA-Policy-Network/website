@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum - NOVA Policy Network</title>
+  <link rel="icon" type="image/png" href="N.png">
+  <link rel="shortcut icon" type="image/png" href="N.png">
+  <link rel="apple-touch-icon" href="N.png">
+  <link href="./simple-style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #000;
+      background: #fff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* Main container */
+    .frame {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Header styling */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      padding: 0;
+      border: none;
+    }
+
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .github-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .github-link:hover {
+      color: #000;
+    }
+
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link:hover {
+      color: #000;
+    }
+
+    /* Page header */
+    .page-header {
+      margin-bottom: 60px;
+    }
+
+    .page-title {
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #000;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .page-subtitle {
+      font-size: 18px;
+      color: #666;
+      line-height: 1.6;
+      max-width: 600px;
+      font-weight: 400;
+    }
+
+    /* Curriculum overview */
+    .curriculum-overview {
+      background: #fafafa;
+      border: 1px solid #f0f0f0;
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .overview-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .overview-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .overview-description {
+      color: #444;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .overview-stats {
+      background: #fff;
+      border: 1px solid #f5f5f5;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .stat:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .stat-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    /* Module grid */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .module {
+      background: #fafafa;
+      border: 1px solid #f0f0f0;
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .module:hover {
+      border-color: #e0e0e0;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .module-number {
+      position: absolute;
+      top: -12px;
+      left: 32px;
+      background: #000;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .module-header {
+      margin-bottom: 20px;
+      padding-top: 12px;
+    }
+
+    .module-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .module-duration {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+    }
+
+    .module-description {
+      color: #444;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .module-topics {
+      margin-bottom: 24px;
+    }
+
+    .topics-title {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .topic-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .topic-item {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .topic-item:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #999;
+      font-weight: bold;
+    }
+
+    .module-resources {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .resource-link {
+      font-size: 12px;
+      color: #0066ff;
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid #e0e8ff;
+      border-radius: 16px;
+      background: #f8faff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .resource-link:hover {
+      background: #e0e8ff;
+      border-color: #c0d0ff;
+    }
+
+    /* Learning path visualization */
+    .learning-path {
+      background: #f8f9fa;
+      border: 1px solid #f0f0f0;
+      border-radius: 24px;
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+
+    .path-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+
+    .path-timeline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .path-timeline:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #f0f0f0 0%, #000 50%, #f0f0f0 100%);
+      z-index: 1;
+    }
+
+    .timeline-stage {
+      background: #fff;
+      border: 2px solid #f0f0f0;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #666;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+
+    .timeline-stage.active {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .timeline-stage.completed {
+      background: #f0f8ff;
+      border-color: #0066ff;
+      color: #0066ff;
+    }
+
+    .stage-label {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    /* Certification section */
+    .certification-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 24px;
+      padding: 60px 40px;
+      color: white;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .cert-title {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .cert-subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cert-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .cert-feature {
+      text-align: center;
+    }
+
+    .feature-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .feature-description {
+      font-size: 13px;
+      opacity: 0.8;
+      line-height: 1.5;
+    }
+
+    .cert-cta {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .cert-cta:hover {
+      background: rgba(255,255,255,0.3);
+      border-color: rgba(255,255,255,0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .frame {
+        padding: 40px 16px;
+      }
+
+      .page-title {
+        font-size: 36px;
+      }
+
+      .modules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .path-timeline {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .path-timeline:before {
+        display: none;
+      }
+
+      .cert-features {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* Smooth transitions */
+    * {
+      transition: color 0.2s ease;
+    }
+
+    /* Focus states */
+    .resource-link:focus,
+    .github-link:focus,
+    .nav-link:focus {
+      outline: 2px solid #0066ff;
+      outline-offset: 2px;
+    }
+
+    /* Floating Particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(0, 102, 255, 0.3);
+      border-radius: 50%;
+      animation: float-particle 20s infinite linear;
+    }
+
+    .particle:nth-child(2n) {
+      background: rgba(102, 126, 234, 0.2);
+      width: 2px;
+      height: 2px;
+      animation-duration: 25s;
+    }
+
+    .particle:nth-child(3n) {
+      background: rgba(118, 75, 162, 0.25);
+      width: 4px;
+      height: 4px;
+      animation-duration: 15s;
+    }
+
+    .particle:nth-child(4n) {
+      background: rgba(0, 0, 0, 0.1);
+      width: 1px;
+      height: 1px;
+      animation-duration: 30s;
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) translateX(100px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+  
+  <div class="frame">
+    <header>
+      <a href="index.html" class="logo">NOVA Policy Network</a>
+      <nav style="display: flex; gap: 24px; align-items: center;">
+        <a href="publications.html" class="nav-link">Publications</a>
+        <a href="curriculum.html" class="nav-link">Curriculum</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="https://github.com/nova-policy" target="_blank" class="github-link" aria-label="GitHub">
+          <svg height="15" viewBox="0 0 16 16" fill="#222" style="vertical-align: middle;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68.003 1.37.092 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-header">
+        <h1 class="page-title">Neuroenhancement Policy Curriculum</h1>
+        <p class="page-subtitle">A comprehensive seven-module certification program designed for policymakers, researchers, and industry leaders navigating the complex landscape of cognitive enhancement technologies</p>
+      </div>
+
+      <!-- Enhanced Program Overview -->
+      <section class="enhanced-overview" style="margin: 60px 0; padding: 40px; background: #f8f9fa; border-radius: 16px; border: 1px solid #f0f0f0;">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h2 style="font-size: 28px; font-weight: 600; color: #000; margin-bottom: 16px; text-transform: uppercase; letter-spacing: -0.01em;">Program Overview</h2>
+          <p style="font-size: 16px; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            A comprehensive seven-module certification program designed for policymakers, researchers, and industry leaders. Fit for anyone looking to understand the complex landscape of cognitive enhancement technologies.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px; text-align: center; margin-bottom: 40px;">
+          <div class="enhanced-stat">
+            <div style="font-size: 36px; font-weight: 600; color: #000; margin-bottom: 8px;">200+</div>
+            <div style="font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">People Trained</div>
+          </div>
+          <div class="enhanced-stat">
+            <div style="font-size: 36px; font-weight: 600; color: #000; margin-bottom: 8px;">14</div>
+            <div style="font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Weeks Duration</div>
+          </div>
+          <div class="enhanced-stat">
+            <div style="font-size: 36px; font-weight: 600; color: #000; margin-bottom: 8px;">7</div>
+            <div style="font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 500;">Core Modules</div>
+          </div>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 32px; text-align: center;">
+          <h3 style="font-size: 18px; font-weight: 600; color: #000; margin-bottom: 16px; text-transform: uppercase;">Suitable For Everyone</h3>
+          <p style="color: #444; line-height: 1.6; font-size: 15px; max-width: 500px; margin: 0 auto;">
+            Whether you are a policy professional, academic researcher, industry executive, or simply interested in cognitive enhancement governance, this program provides the foundational knowledge and advanced insights needed to navigate this rapidly evolving field.
+          </p>
+        </div>
+      </section>
+
+      <div class="modules-grid">
+        <div class="module">
+          <div class="module-number">Module 01</div>
+          <div class="module-header">
+            <div class="module-title">Foundations of Neuroenhancement</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Establish fundamental understanding of cognitive enhancement technologies, historical development, and core terminology. Examine the intersection of neuroscience, technology, and policy frameworks.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">Defining cognitive enhancement and neuroenhancement</li>
+              <li class="topic-item">Historical evolution from caffeine to brain-computer interfaces</li>
+              <li class="topic-item">Current technological landscape and market analysis</li>
+              <li class="topic-item">Stakeholder mapping and policy ecosystem overview</li>
+              <li class="topic-item">Introduction to regulatory complexity and jurisdictional challenges</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Slide Deck</a>
+            <a href="#" class="resource-link">Readings</a>
+            <a href="#" class="resource-link">Case Studies</a>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-number">Module 02</div>
+          <div class="module-header">
+            <div class="module-title">Neuroscience and Mechanisms</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Deep dive into the biological and technological mechanisms underlying cognitive enhancement. Understand pharmacological, electrical, and magnetic intervention methods and their effects on brain function.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">Neuropharmacology of cognitive enhancers</li>
+              <li class="topic-item">Transcranial stimulation techniques and applications</li>
+              <li class="topic-item">Brain-computer interfaces and neural implants</li>
+              <li class="topic-item">Dosage, timing, and individual variation factors</li>
+              <li class="topic-item">Long-term effects and safety profile analysis</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Slide Deck</a>
+            <a href="#" class="resource-link">Lab Reports</a>
+            <a href="#" class="resource-link">Expert Interviews</a>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-number">Module 03</div>
+          <div class="module-header">
+            <div class="module-title">Ethical Frameworks and Considerations</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Explore the complex ethical landscape of cognitive enhancement including autonomy, justice, authenticity, and societal implications. Develop frameworks for ethical evaluation and decision-making.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">Autonomy and informed consent in enhancement contexts</li>
+              <li class="topic-item">Justice and fairness in access and distribution</li>
+              <li class="topic-item">Authenticity and human identity questions</li>
+              <li class="topic-item">Coercion and pressure in competitive environments</li>
+              <li class="topic-item">Long-term societal transformation implications</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Slide Deck</a>
+            <a href="#" class="resource-link">Ethics Toolkit</a>
+            <a href="#" class="resource-link">Debate Materials</a>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-number">Module 04</div>
+          <div class="module-header">
+            <div class="module-title">Regulatory Frameworks and Governance</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Comprehensive analysis of existing and proposed regulatory approaches across different jurisdictions. Examine drug approval processes, medical device regulations, and emerging governance models.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">FDA and EMA approaches to cognitive enhancers</li>
+              <li class="topic-item">Off-label use regulations and enforcement challenges</li>
+              <li class="topic-item">Medical device classification for neurostimulation</li>
+              <li class="topic-item">Professional licensing and practice standards</li>
+              <li class="topic-item">Adaptive and anticipatory governance models</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Slide Deck</a>
+            <a href="#" class="resource-link">Policy Database</a>
+            <a href="#" class="resource-link">Regulatory Mapping</a>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-number">Module 05</div>
+          <div class="module-header">
+            <div class="module-title">Global Perspectives and Comparative Analysis</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Examine how different countries and cultures approach neuroenhancement policy. Analyze cultural, economic, and political factors that influence regulatory decisions and public acceptance.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">US liberal market approach versus EU precautionary principles</li>
+              <li class="topic-item">Asian perspectives on cognitive enhancement and human optimization</li>
+              <li class="topic-item">Developing country challenges and opportunities</li>
+              <li class="topic-item">International cooperation and harmonization efforts</li>
+              <li class="topic-item">Cross-border enforcement and jurisdiction issues</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Slide Deck</a>
+            <a href="#" class="resource-link">Country Profiles</a>
+            <a href="#" class="resource-link">Comparative Matrix</a>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-number">Module 06</div>
+          <div class="module-header">
+            <div class="module-title">Emerging Technologies and Future Scenarios</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Forward-looking analysis of next-generation enhancement technologies and their policy implications. Develop scenarios and adaptive governance strategies for emerging challenges.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">Next-generation brain-computer interfaces and neural prosthetics</li>
+              <li class="topic-item">Genetic and epigenetic cognitive enhancement approaches</li>
+              <li class="topic-item">Artificial intelligence integration with human cognition</li>
+              <li class="topic-item">Nanotechnology and targeted drug delivery systems</li>
+              <li class="topic-item">Scenario planning and adaptive policy frameworks</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Slide Deck</a>
+            <a href="#" class="resource-link">Tech Forecasts</a>
+            <a href="#" class="resource-link">Scenario Tools</a>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-number">Module 07</div>
+          <div class="module-header">
+            <div class="module-title">Capstone Policy Development</div>
+            <div class="module-duration">2 Weeks • 12 Hours</div>
+          </div>
+          <div class="module-description">
+            Synthesize learning through development of comprehensive policy proposals. Work individually or in teams to create evidence-based policy recommendations for specific enhancement scenarios.
+          </div>
+          <div class="module-topics">
+            <div class="topics-title">Key Topics</div>
+            <ul class="topic-list">
+              <li class="topic-item">Policy problem identification and stakeholder analysis</li>
+              <li class="topic-item">Evidence synthesis and literature review methodology</li>
+              <li class="topic-item">Regulatory impact assessment and cost-benefit analysis</li>
+              <li class="topic-item">Implementation planning and monitoring frameworks</li>
+              <li class="topic-item">Presentation and defense of policy recommendations</li>
+            </ul>
+          </div>
+          <div class="module-resources">
+            <a href="#" class="resource-link">Project Guidelines</a>
+            <a href="#" class="resource-link">Template Library</a>
+            <a href="#" class="resource-link">Peer Review</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Module interaction functionality
+    document.querySelectorAll('.module').forEach(module => {
+      module.addEventListener('click', function() {
+        // Add interaction feedback
+        this.style.transform = 'translateY(-4px)';
+        setTimeout(() => {
+          this.style.transform = 'translateY(-2px)';
+        }, 150);
+      });
+    });
+
+    // Timeline stage interaction
+    document.querySelectorAll('.timeline-stage').forEach(stage => {
+      stage.addEventListener('click', function() {
+        // Remove active class from all stages
+        document.querySelectorAll('.timeline-stage').forEach(s => s.classList.remove('active'));
+        // Add active class to clicked stage
+        this.classList.add('active');
+      });
+    });
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Generate floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 50;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random starting position
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 20) + 's';
+        
+        // Random horizontal drift
+        const drift = (Math.random() - 0.5) * 200;
+        particle.style.setProperty('--drift', drift + 'px');
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Initialize particles when page loads
+    document.addEventListener('DOMContentLoaded', createParticles);
+  </script>
+</body>
+</html>

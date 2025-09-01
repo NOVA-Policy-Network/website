@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications & Editorials - NOVA Policy Network</title>
+  <link rel="icon" type="image/png" href="N.png">
+  <link rel="shortcut icon" type="image/png" href="N.png">
+  <link rel="apple-touch-icon" href="N.png">
+  <link href="./simple-style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: #000;
+      background: #fff;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    /* Main container - even wider like dris.one */
+    .frame {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Header styling - ultra minimal */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 120px;
+      padding: 0;
+      border: none;
+    }
+
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .github-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .github-link:hover {
+      color: #000;
+    }
+
+    .nav-link {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 4px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-link:hover {
+      color: #000;
+    }
+
+    /* Main heading - dris.one style */
+    h1 {
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #000;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+      max-width: 700px;
+    }
+
+    /* Subtitle styling - cleaner */
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 60px;
+      max-width: 600px;
+      font-weight: 400;
+    }
+
+    /* Publications section */
+    .publications-section {
+      margin-bottom: 80px;
+    }
+
+    .publication {
+      margin-bottom: 40px;
+      background: #fafafa;
+      border: 1px solid #f0f0f0;
+      border-radius: 8px;
+      padding: 24px;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .publication:hover {
+      border-color: #e0e0e0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .pub-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pub-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .pub-download-link {
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .pub-download-link:hover {
+      color: #0066ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .pub-date {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      color: #999;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: 1px solid #f0f0f0;
+    }
+
+    .pub-authors {
+      font-size: 13px;
+      color: #666;
+      font-weight: 500;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .pub-description {
+      color: #444;
+      line-height: 1.7;
+      font-size: 15px;
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #f5f5f5;
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* Tags - enhanced for boxes */
+    .tag {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      background: #f8f8f8;
+      color: #666;
+      padding: 6px 12px;
+      border: 1px solid #f0f0f0;
+      border-radius: 20px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      text-transform: lowercase;
+    }
+
+    .tag:hover {
+      background: #f0f0f0;
+      color: #333;
+      border-color: #e0e0e0;
+    }
+
+    /* Footer - dris.one style */
+    .frame > main > div:last-child {
+      margin-top: 120px;
+      padding-top: 0;
+      border-top: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .frame > main > div:last-child img {
+      width: 120px;
+      height: auto;
+      opacity: 0.8;
+    }
+
+    .frame > main > div:last-child div {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #999;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .frame > main > div:last-child a {
+      color: #666;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .frame > main > div:last-child a:hover {
+      color: #000;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .frame {
+        padding: 40px 16px;
+      }
+      
+      h1 {
+        font-size: 36px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+
+    /* Clean transitions */
+    * {
+      transition: color 0.2s ease;
+    }
+
+    /* Focus states */
+    .github-link:focus,
+    .nav-link:focus {
+      outline: 2px solid #0066ff;
+      outline-offset: 2px;
+    }
+
+    /* Intro section */
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <header>
+      <a href="index.html" class="logo">NOVA Policy Network</a>
+      <nav style="display: flex; gap: 24px; align-items: center;">
+        <a href="publications.html" class="nav-link">Publications</a>
+        <a href="curriculum.html" class="nav-link">Curriculum</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="https://github.com/nova-policy" target="_blank" class="github-link" aria-label="GitHub">
+          <svg height="15" viewBox="0 0 16 16" fill="#222" style="vertical-align: middle;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82a7.65 7.65 0 0 1 2-.27c.68.003 1.37.092 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <h1>Publications & Editorials</h1>
+        <p class="subtitle">Research papers, policy briefs, and editorial perspectives on cognitive enhancement governance</p>
+      </section>
+
+      <section class="policy-briefs-section">
+        <h2 style="font-size: 32px; font-weight: 500; margin-bottom: 24px; color: #000; letter-spacing: -0.01em;">Policy Briefs</h2>
+        <p style="font-size: 16px; color: #666; margin-bottom: 40px; max-width: 600px;">Concise policy recommendations and strategic guidance for policymakers and stakeholders in cognitive enhancement governance.</p>
+        
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/Are_Existing_Data_Privacy_Laws_Sufficient_for_Neural_Data_.pdf" download class="pub-download-link">
+                Are Existing Data Privacy Laws Sufficient for Neural Data?
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A comprehensive analysis examining whether current data privacy frameworks adequately protect neural data collected through brain-computer interfaces and neurotechnology devices. This brief evaluates the limitations of existing privacy laws when applied to neural information, identifies critical gaps in protection mechanisms, and proposes specific legislative and regulatory reforms needed to safeguard mental privacy in the age of advanced neurotechnology.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">neural-data</span>
+            <span class="tag">data-privacy</span>
+            <span class="tag">legislative-reform</span>
+            <span class="tag">mental-privacy</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/The_Global_Implications_of_China_s_Cognitive_Enhancement_Programs__1_.pdf" download class="pub-download-link">
+                The Global Implications of China's Cognitive Enhancement Programs
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            An in-depth analysis of China's state-led cognitive enhancement initiatives and their implications for global competition, security, and governance. This brief examines China's strategic approach to cognitive technologies, assesses potential impacts on international relations, and provides recommendations for Western policymakers to address the challenges and opportunities presented by China's advancement in cognitive enhancement capabilities.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">china</span>
+            <span class="tag">cognitive-enhancement</span>
+            <span class="tag">geopolitics</span>
+            <span class="tag">international-security</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/EU_Artificial_Intelligence_Act___Neurotech.pdf" download class="pub-download-link">
+                EU Artificial Intelligence Act & Neurotech
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Analysis of the European Union's Artificial Intelligence Act and its implications for neurotechnology regulation. This brief examines how AI governance frameworks intersect with cognitive enhancement technologies, provides guidance on compliance requirements, and identifies opportunities for harmonized regulatory approaches between AI and neurotech oversight mechanisms.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">eu-ai-act</span>
+            <span class="tag">neurotech</span>
+            <span class="tag">regulatory-compliance</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/Operationalizing_the_OECD_Guidelines_for_Responsible_Neurotechnology.pdf" download class="pub-download-link">
+                Operationalizing the OECD Guidelines for Responsible Neurotechnology
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A comprehensive framework for implementing the OECD Guidelines for Responsible Neurotechnology in practice. This brief provides actionable strategies for governments, organizations, and stakeholders to operationalize ethical neurotechnology governance principles, including assessment tools, implementation timelines, and accountability mechanisms for responsible neurotechnology development and deployment.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">oecd-guidelines</span>
+            <span class="tag">implementation</span>
+            <span class="tag">responsible-neurotechnology</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/IMMEDIATE_ACTIONS_COGNITIVE_ENHANCEMENT_OVERSIGHT.pdf" download class="pub-download-link">
+                Immediate Actions for Cognitive Enhancement Oversight
+              </a>
+            </h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A concise policy brief outlining five critical actions policymakers should take immediately to establish cognitive enhancement oversight. This brief provides actionable recommendations for regulatory agencies, congressional committees, and international bodies to begin addressing the governance gap in cognitive enhancement technologies before widespread adoption outpaces policy development.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">immediate-action</span>
+            <span class="tag">regulatory-oversight</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/COGNITIVE_ENHANCEMENT_HIGHER_EDUCATION_POLICY_ROADMAP.pdf" download class="pub-download-link">
+                Cognitive Enhancement in Higher Education: A Policy Roadmap
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Strategic guidance for university administrators and education policymakers on managing cognitive enhancement use in academic settings. This brief addresses academic integrity concerns, equity issues, and institutional policy recommendations while providing practical frameworks for campus-level implementation of enhancement governance policies.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">higher-education</span>
+            <span class="tag">academic-integrity</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/INTERNATIONAL_COORDINATION_COGNITIVE_ENHANCEMENT_KEY_PRIORITIES.pdf" download class="pub-download-link">
+                International Coordination on Cognitive Enhancement: Key Priorities
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Policy recommendations for establishing international cooperation mechanisms on cognitive enhancement governance. This brief identifies priority areas for diplomatic engagement, proposes multilateral framework structures, and outlines steps for building consensus among nations with different regulatory approaches to cognitive enhancement technologies.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">international-cooperation</span>
+            <span class="tag">diplomatic-engagement</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/PRIVATE_SECTOR_GUIDELINES_COGNITIVE_ENHANCEMENT_ETHICS.pdf" download class="pub-download-link">
+                Private Sector Guidelines for Cognitive Enhancement Ethics
+              </a>
+            </h3>
+            <span class="pub-date">2025</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Practical guidance for corporations implementing cognitive enhancement policies in the workplace. This brief provides templates for corporate ethics policies, guidance on voluntary versus mandatory enhancement programs, and recommendations for protecting employee autonomy while maintaining competitive advantages through responsible enhancement adoption.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">corporate-guidance</span>
+            <span class="tag">workplace-ethics</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/Evaluating_the_Ethical_Gov_Gaps_in_the_NIH_Brain_Initiative.pdf" download class="pub-download-link">
+                Evaluating the Ethical Governance Gaps in the NIH Brain Initiative
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A critical assessment of ethical oversight mechanisms within the National Institutes of Health Brain Research through Advancing Innovative Neurotechnologies (BRAIN) Initiative. This brief identifies key governance gaps in neurotechnology research funding, proposes enhanced ethical review processes, and recommends policy reforms to ensure responsible development of brain-computer interfaces and cognitive enhancement technologies within federally funded research programs.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">nih-brain-initiative</span>
+            <span class="tag">ethical-oversight</span>
+            <span class="tag">federal-funding</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/Reassessing_FDA_Pathways_for_Nootropics_and_Cognitive_Enhancers.pdf" download class="pub-download-link">
+                FDA Regulation of Cognitive Neurodrugs
+              </a>
+            </h3>
+            <span class="pub-date">2024</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            A comprehensive analysis of current FDA regulatory pathways for cognitive enhancement drugs and nootropics. This brief examines existing approval processes, identifies regulatory gaps in cognitive enhancement oversight, and proposes updated frameworks for evaluating safety and efficacy of neurodrugs designed for cognitive enhancement rather than traditional therapeutic purposes.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">fda-regulation</span>
+            <span class="tag">neurodrugs</span>
+            <span class="tag">regulatory-pathways</span>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-header">
+            <h3 class="pub-title">
+              <a href="publications/policy-briefs/COGNITIVE_ENHANCEMENT_HEALTHCARE_INTEGRATION_POLICY_PRIORITIES.pdf" download class="pub-download-link">
+                Cognitive Enhancement and Healthcare Integration: Policy Priorities
+              </a>
+            </h3>
+            <span class="pub-date">2023</span>
+          </div>
+          <p class="pub-authors">Murari Ambati</p>
+          <p class="pub-description">
+            Strategic recommendations for integrating cognitive enhancement technologies into existing healthcare systems. This brief addresses reimbursement policies, provider training requirements, and quality assurance mechanisms while proposing pathways for evidence-based integration that maintains healthcare safety standards and patient protection protocols.
+          </p>
+          <div class="pub-tags">
+            <span class="tag">policy-brief</span>
+            <span class="tag">healthcare-integration</span>
+            <span class="tag">reimbursement-policy</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comprehensive Research Access Section -->
+      <section class="comprehensive-access-section" style="margin-top: 80px; padding: 40px; background: #f8f9fa; border-radius: 12px; border: 1px solid #e9ecef;">
+        <h2 style="font-size: 32px; font-weight: 500; margin-bottom: 24px; color: #000; letter-spacing: -0.01em;">Comprehensive Research Access</h2>
+        <p style="font-size: 18px; color: #444; margin-bottom: 32px; line-height: 1.6; max-width: 700px;">
+          Access our complete collection of 70+ policy frameworks, research papers, and regulatory proposals for academic research, institutional policy development, and professional consultation.
+        </p>
+        
+        <div style="text-align: center; padding: 40px 0;">
+          <h3 style="font-size: 22px; font-weight: 600; margin-bottom: 20px; color: #000;">Request Research Access</h3>
+          <p style="color: #666; font-size: 16px; line-height: 1.6; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto;">
+            Contact us to request access to our comprehensive research collection. We provide tailored access packages for academic institutions, government agencies, and industry organizations.
+          </p>
+          <a href="mailto:contact@novapolicy.network" style="display: inline-block; background: #0066ff; color: #fff; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 0.5px;">
+            Request Research Access
+          </a>
+        </div>
+      </section>
+      
+      <div>
+        <img src="N.png" alt="NOVA Policy Network logo">
+        <div>© 2025 NOVA Policy Network. All rights reserved.</div>
+        <a href="https://github.com/nova-policy" class="github-link">GitHub</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
